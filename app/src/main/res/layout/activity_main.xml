@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.hanhaikuaichuan.MainActivity">
+
+
+    <TextView
+        android:id="@+id/tv_promptMsg"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/textview_border"
+        android:fadeScrollbars="false"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:scrollbars="vertical"
+        android:lineSpacingMultiplier="1.5"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:text=" "
+            android:textColor="#FF0000"
+            android:textSize="20dp"
+            android:maxLines="1"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_showTime"
+            android:layout_gravity="center"/>
+        <TextView
+            android:text="文件名："
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:maxLines="1"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_fileName"
+            android:layout_gravity="center"/>
+        <TextView
+            android:text="已有/共需数据片："
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:maxLines="1"
+            android:layout_marginBottom="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_cur_total"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_server"
+            android:text="Server"
+
+            style="@android:style/Widget.Button" />
+        <Button
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_client"
+            android:text="Client"
+            style="@android:style/Widget.Button" />
+        <Button
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_selectFile"
+            android:text="选择文件"
+            style="@android:style/Widget.Button" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

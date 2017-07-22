@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="设置 N 值"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_openAppFolder"
+        android:orderInCategory="100"
+        android:title="打开工作目录"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_description"
+        android:orderInCategory="100"
+        android:title="参数说明"
+        app:showAsAction="never"
+        />
+</menu>
