@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#25000000"
+    >
+
+    <!--布局宽度无法正常显示，设置一个空TextView占位，10000是一个极大值-->
+    <TextView
+        android:id="@+id/title0"
+        android:layout_width="10000px"
+        android:layout_height="1px"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/textView_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="选择编码文件"
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        />
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        />
+
+
+    <ListView
+        android:id="@+id/file_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="650px"
+
+        android:listSelector="#6495ED"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="5dp"
+
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/positiveButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="确定"
+
+            />
+
+        <Button
+            android:id="@+id/negativeButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="取消"
+            />
+    </LinearLayout>
+</LinearLayout>

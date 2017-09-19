@@ -32,13 +32,17 @@ public class FilesListViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_files_list_view);
-
+        //从上一个活动获取文件地址
         Intent intent = getIntent();
         dataPath = intent.getStringExtra("data_path");
-
+        //显示文件目录
         showFileList(dataPath);
     }
 
+    /**
+     * 显示path路径下的文件目录
+     * @param path
+     */
     public void showFileList(final String path) {
         currentPath = path;
         //文件夹名作为标题
@@ -185,7 +189,6 @@ public class FilesListViewActivity extends AppCompatActivity {
     /***
      * 根据文件后缀回去MIME类型
      ****/
-
     private static String getMIMEType(File file) {
         String type = "*/*";
         String fName = file.getName();
@@ -268,5 +271,6 @@ public class FilesListViewActivity extends AppCompatActivity {
             {".wmv", "audio/x-ms-wmv"},
             {".wps", "application/vnd.ms-works"}, {".xml", "text/plain"},
             {".z", "application/x-compress"},
-            {".zip", "application/x-zip-compressed"}, {"", "*/*"}};
+            {".zip", "application/x-zip-compressed"}, {"", "*/*"}
+    };
 }

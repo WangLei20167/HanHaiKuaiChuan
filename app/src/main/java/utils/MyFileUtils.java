@@ -71,19 +71,22 @@ public class MyFileUtils {
     }
 
 
-
     /**
      * 从路径文件中读取数据放入byte[]
      *
-     * @param path
-     * @param fileName
+     * @param obj 传入文件对象，或是文件路径
      * @return byte[]
      */
-    public static byte[] readFile(String path, String fileName) {
-        String path_fileName = path + File.separator + fileName;
-        File file = new File(path_fileName);
+    public static byte[] readFile(Object obj) {
+        File file = null;
+        if (obj instanceof File) {
+            file = (File) obj;
+        } else {
+            file = new File(obj.toString());
+        }
         if (!file.exists()) {
             try {
+                //不存在的话，创建新文件并退出
                 file.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -97,7 +100,7 @@ public class MyFileUtils {
             return null;
         }
 
-        byte[] buffer = new byte[0];
+        byte[] buffer = null;
         try {
             FileInputStream fi = new FileInputStream(file);
             buffer = new byte[(int) fileSize];
@@ -121,45 +124,6 @@ public class MyFileUtils {
 
     }
 
-    public static byte[] readFile(File file) {
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        long fileSize = file.length();
-        if (fileSize > Integer.MAX_VALUE) {
-            System.out.println("file too big...");
-            return null;
-        }
-
-        byte[] buffer = new byte[0];
-        try {
-            FileInputStream fi = new FileInputStream(file);
-            buffer = new byte[(int) fileSize];
-            int offset = 0;
-            int numRead = 0;
-            while (offset < buffer.length
-                    && (numRead = fi.read(buffer, offset, buffer.length - offset)) >= 0) {
-                offset += numRead;
-            }
-            // 确保所有数据均被读取
-            if (offset != buffer.length) {
-                throw new IOException("Could not completely read file "
-                        + file.getName());
-            }
-            fi.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-        return buffer;
-
-    }
 
     /**
      * 在指定路径下创建File，并返回File对象
@@ -364,16 +328,16 @@ public class MyFileUtils {
     /**
      * 合并文件
      *
-     * @param outFile 输出路径
-     * @param files   需要合并的文件路径
+     * @param outFile 输出路径,含文件名
+     * @param files   需要合并的文件路径 可是File[]，也可是String[]
      */
     public static final int BUFSIZE = 1024 * 8;
 
-    public static void mergeFiles(String outFile, String[] files) {
+    public static void mergeFiles(String outFile, File[] files) {
         FileChannel outChannel = null;
         try {
             outChannel = new FileOutputStream(outFile).getChannel();
-            for (String f : files) {
+            for (File f : files) {
                 FileChannel fc = new FileInputStream(f).getChannel();
                 ByteBuffer bb = ByteBuffer.allocate(BUFSIZE);
                 while (fc.read(bb) != -1) {
